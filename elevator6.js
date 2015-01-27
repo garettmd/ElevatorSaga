@@ -28,14 +28,14 @@
 		var nextele = 0;
 		var floor1 = floors[1];
 		floor1.on("up_button_pressed", function(event){
-			if (elevator2.goingUpIndicator() && elevator2.floorNum() < floor1.currentFloor()) {
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor1.floorNum() && elevator2.loadFactor() == 0) {
 				elevator2.goToFloor(floor1.floorNum());
 			};
 		});
 		
 		var floor2 = floors[2];
 		floor2.on("up_button_pressed", function(event){
-			if (elevator2.goingUpIndicator() && elevator2.floorNum() < floor2.currentFloor()) {
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor2.floorNum() && elevator2.loadFactor() == 0) {
 				elevator2.goToFloor(floor2.floorNum());
 			};
 			
@@ -43,25 +43,28 @@
 		
 		var floor3 = floors[3];
 		floor3.on("up_button_pressed", function(event){
-			if (elevator2.goingUpIndicator() && elevator2.floorNum() < floor3.currentFloor()) {
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor3.floorNum() && elevator2.loadFactor() == 0) {
 				elevator2.goToFloor(floor3.floorNum());
 			};
 		});
 		
 		//↓↓↓DOWN↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-		var floor1 = floors[1];
 		floor1.on("down_button_pressed", function(event){
-			elevator2.goToFloor(floor1.floorNum());
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor1.floorNum() && elevator2.loadFactor() == 0) {
+				elevator2.goToFloor(floor1.floorNum());
+			};
 		});
 		
-		var floor2 = floors[2];
 		floor2.on("down_button_pressed", function(event){
-			elevator2.goToFloor(floor2.floorNum());
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor1.floorNum() && elevator2.loadFactor() == 0) {
+				elevator2.goToFloor(floor2.floorNum());
+			};
 		});
 		
-		var floor3 = floors[3];
 		floor3.on("down_button_pressed", function(event){
-			elevator2.goToFloor(floor3.floorNum());
+			if (elevator2.goingUpIndicator() && elevator2.currentFloor() < floor1.floorNum() && elevator2.loadFactor() == 0) {
+				elevator2.goToFloor(floor3.floorNum());
+			};
 		});
     },
 	
